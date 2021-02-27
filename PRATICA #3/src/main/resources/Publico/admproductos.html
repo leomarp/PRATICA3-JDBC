@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Bootstrap CRUD Data Table for Database with Modal Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<style>
+   .material-icons carrito{
+        font-size: 30px;
+        padding: 13px;
+    }
+
+    .badge badge-info{
+    top: 0px;
+    left: 20px;
+    padding: 2px;
+
+
+
+
+</style>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">TIENDA PUCMM </a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Ver Productos</a></li>
+            <li><a href="/verventas">Ventas Realizadas</a></li>
+            <li class="active"><a href="/admprod">Administrar productos</a></li>
+            <li name = cantidad><a href="/carrito"><i class="material-icons carrito" data-toggle="tooltip" title="Edit">shopping_cart</i><span class="badge badge-info" th:text="${cantidad}"></span></li></a>
+            <li name = cantidad><a href="/login"><i class="material-icons carrito" data-toggle="tooltip" title="Edit">account_circle</i></a>
+
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h3><b>Lista de productos</b></h3>
+    <table id = tabla class="table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cantidad en stock</th>
+            <th>Precio</th>
+            <th ><a href="/nuevoproducto" style="text-align: right" class="btn btn-info"><b>Anadir producto</b><a></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="producto : ${lista}">
+
+                <td th:text=${producto.id}>ID</td>
+                <td th:text=${producto.nombre}>Nombre</td>
+                <td th:text=${producto.cantidad}>Cantidad en stock</td>
+                <td th:text=${producto.precio}>Precio</td>
+                <td style="text-align: right">
+                    <a   th:href="'/eliminar/'+${producto.id}" data-toggle="modal"><i class="material-icons delete" data-toggle="tooltip" title="Edit">delete_forever</i></a>
+                </td>
+                <td>
+                    <a   th:href="'editar/'+${producto.id}"  data-toggle="modal"><i class="material-icons edit" data-toggle="tooltip" title="Edit">edit</i></a>
+                </td>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

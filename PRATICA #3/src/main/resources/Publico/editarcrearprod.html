@@ -1,0 +1,72 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<style>
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    color: #333;
+}
+.login-container form{
+    padding: 10%;
+}
+.btnSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit{
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form-1 .ForgetPwd{
+    color: #0062cc;
+    font-weight: 600;
+    text-decoration: none;
+}
+</style>
+
+<div class="container login-container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6 login-form-1">
+            <h3 th:text=${titulo}></h3>
+            <h4 th:text=${error}></h4>
+            <form method="post" th:attr="action=${accion}">
+                <div class="form-group">
+                    <a href="/admprod" ><i style="font-size:35px" class="material-icons delete" data-toggle="tooltip" title="Edit">assignment</i></a>
+                </div>
+                <div class="form-group">
+                    <input name="id" type="text" class="form-control" placeholder="ID" th:attr="value=${idval}" required/>
+                </div>
+                <div class="form-group">
+                    <input name="nombre" type="text" class="form-control" placeholder="Nombre" th:attr="value=${nombreval}" required/>
+                </div>
+                <div class="form-group">
+                    <input name="cantidad" type="number" class="form-control" placeholder="Cantidad" th:attr="value=${cantidadval}" required/>
+                </div>
+                <div class="form-group">
+                    <input name="precio" type="number" class="form-control" placeholder="Precio" th:attr="value=${precioval}" required/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btnSubmit" th:text = ${boton}>Crear</button>
+                </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
